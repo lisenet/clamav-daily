@@ -3,11 +3,14 @@
 # 17/01/2014 (dd/mm/yy)
 # copyleft free software
 #
-LOGFILE="/var/log/clamav/clam-daily.log";
+LOGFILE="/var/log/clamav/clamav-$(date +'%Y-%m-%d').log";
 EMAIL_MSG="Please see the log file attached.";
 EMAIL_FROM="clamav-daily@example.com";
 EMAIL_TO="admin@example.com";
 DIRTOSCAN="/home";
+
+# Check for mail installation
+type mail >/dev/null 2>&1 || { echo >&2 "I require mail but it's not installed. Aborting."; exit 1; };
 
 # Update ClamAV database
 echo "Looking for ClamAV database updates...";
