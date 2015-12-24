@@ -4,8 +4,9 @@
 # copyleft free software
 #
 LOGFILE="/var/log/clamav/clamav-$(date +'%Y-%m-%d').log";
+HOST="$(hostname --long)";
 EMAIL_MSG="Please see the log file attached.";
-EMAIL_FROM="clamav-daily@example.com";
+EMAIL_FROM="clamav-daily@"$HOST"";
 EMAIL_TO="admin@example.com";
 DIRTOSCAN="/home";
 
