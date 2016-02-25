@@ -75,7 +75,7 @@ else
     for dir in ${DIR_ARRAY[@]};do
         DIRSIZE=$(du -sh "$dir"  2>/dev/null|cut -f1);
         echo -e "Starting a daily ClamAV scan of "$dir" directory.\nThe amount of data to be scanned is "$DIRSIZE".";
-        clamscan -ri "$dir" >"$CLAMAV_LOG_FILE" 2>&1;
+        clamscan -ri "$dir" --exclude-dir=/sys/ --exclude-dir="$DIRTOEXCLUDE" >"$CLAMAV_LOG_FILE" 2>&1;
 
         #############################################
         #        CLAMAV EMAIL NOTIFICATIONS         #
