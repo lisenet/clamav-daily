@@ -60,11 +60,11 @@ freshclam -V;
 echo "Looking for ClamAV database updates.";
 if [ -f "${FRESHCLAM_LOG}" ]; then
     # Log file causes pain sometimes.
-    rm "${FRESHCLAM_LOG}" -rf;
+    rm -rf "${FRESHCLAM_LOG:-fallback}";
 fi
 
 freshclam --quiet;
-rm "${FRESHCLAM_LOG}" -rf;
+rm -rf "${FRESHCLAM_LOG:-fallback}";
 
 if [ "$(date +%u)" == "6" ];then
     echo "Starting a full weekend ClamAV scan.";
@@ -157,7 +157,7 @@ rkhunter --update;
 echo "Starting a daily rkhunter scan.";
 nice rkhunter --configfile "${RKHUNTER_CONFIG}" --cronjob --report-warnings-only \
   --logfile "${RKHUNTER_LOG_FILE}" >"${EMAIL_MSG_RKHUNTER}";
-rm "${RKHUNTER_CONFIG}" -f;
+rm -f "${RKHUNTER_CONFIG:-fallback}";
 
 echo "The script has finished.";
 exit 0;
