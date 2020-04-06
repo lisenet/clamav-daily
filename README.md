@@ -20,7 +20,7 @@ To install:
 <pre>
 $ sudo apt-get install clamav clamav-freshclam heirloom-mailx rkhunter git
 $ git clone https://github.com/crylium/clamav-daily.git
-$ chmod u+x ./clamav-daily/clamav-rkhunter-scan.sh
+$ chmod u+x ./clamav-daily/*.sh
 $ sudo ./clamav-daily/clamav-rkhunter-scan.sh
 </pre>
 
@@ -29,7 +29,7 @@ $ sudo ./clamav-daily/clamav-rkhunter-scan.sh
 <pre>
 $ sudo yum install clamav clamav-update rkhunter mailx git
 $ git clone https://github.com/crylium/clamav-daily.git
-$ chmod u+x ./clamav-daily/clamav-rkhunter-scan.sh
+$ chmod u+x ./clamav-daily/*.sh
 $ sudo ./clamav-daily/clamav-rkhunter-scan.sh
 </pre>
 
