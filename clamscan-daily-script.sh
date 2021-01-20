@@ -24,9 +24,10 @@ if [ "$TODAY" == "6" ];then
 	# be nice to others while scanning the entire root
 	nice -n5 clamscan -ri / --exclude-dir=/sys/ --exclude-dir=/proc/ &>"${LOGFILE}";
 else
-	DIRSIZE=$(du -sh "${DIRTOSCAN}" 2>/dev/null|cut -f1);
+	# total size if we use something like /home/*/public_html for scanning
+	DIRSIZE=$(du -shc $DIRTOSCAN 2>/dev/null| cut -f1 | tail -1)
 	echo -e "Starting a daily scan of ${DIRTOSCAN} directory.\nAmount of data to be scanned is ${DIRSIZE}.";
-	clamscan -ri "${DIRTOSCAN}" &>"${LOGFILE}";
+	nice -n19 clamscan -ri $DIRTOSCAN &>"${LOGFILE}"
 fi
 
 # get the value of "Infected lines"
