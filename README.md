@@ -24,9 +24,10 @@ $ chmod u+x ./clamav-daily/*.sh
 $ sudo ./clamav-daily/clamav-rkhunter-scan.sh
 </pre>
 
-# Installation on CentOS
+# Installation on CentOS/Rocky
 
 <pre>
+$ sudo yum install epel-release
 $ sudo yum install clamav clamav-update rkhunter mailx git
 $ git clone https://github.com/lisenet/clamav-daily.git
 $ chmod u+x ./clamav-daily/*.sh
