@@ -12,13 +12,13 @@ The script scans pre-defined system locations depending on the day of the week a
 The following packages are used by the script:
  
 * ClamAV
-* Heirloom-mailx
+* bsd-mailx
 * Rkhunter
  
 To install:
 
 <pre>
-$ sudo apt-get install clamav clamav-freshclam heirloom-mailx rkhunter git
+$ sudo apt-get install clamav clamav-freshclam bsd-mailx rkhunter git
 $ git clone https://github.com/lisenet/clamav-daily.git
 $ chmod u+x ./clamav-daily/*.sh
 $ sudo ./clamav-daily/clamav-rkhunter-scan.sh
